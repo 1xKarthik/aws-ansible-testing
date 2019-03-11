@@ -1,0 +1,17 @@
+---
+
+- hosts: localhost
+  connection: local
+  become: yes
+  
+  tasks:
+  - name: Ensure Apache is installed
+    package:
+      name: httpd
+      state: present
+  
+  - name: Start Apache services
+    service:
+      name: httpd
+      state: started
+      enabled: yes
